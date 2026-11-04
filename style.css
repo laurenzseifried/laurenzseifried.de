@@ -5,7 +5,6 @@ body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 -apple-syste
 main{max-width:640px;margin:0 auto;padding:72px 20px 48px}
 .kopf{display:flex;align-items:center;gap:24px;margin-bottom:40px}
 .kopf img{width:112px;height:112px;border-radius:50%;object-fit:cover;flex:none}
-.initialen{width:112px;height:112px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--line);font-size:36px;font-weight:600;color:var(--muted)}
 h1{font-size:34px;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
 .rolle{margin:0;color:var(--muted)}
 .rolle a{color:inherit}
