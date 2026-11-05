@@ -59,9 +59,6 @@ h3{font:500 18px/1.3 var(--sans);letter-spacing:-.01em;margin:0 0 8px}
 .mail{display:inline-flex;gap:12px;align-items:baseline;font:500 clamp(28px,3.6vw,44px)/1.1 var(--sans);letter-spacing:-.035em;text-decoration:none;margin:0 0 16px}
 .mail span{color:var(--still);transition:transform .25s var(--sanft),color .2s}
 .mail:hover span{transform:translateX(4px);color:var(--akzent)}
-.kanaele{list-style:none;margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--linie);display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px}
-.kanaele a{color:var(--leise);text-decoration:none;transition:color .2s}
-.kanaele a:hover{color:var(--text)}
 
 /* Fuß */
 .fuss{max-width:var(--breit);margin:clamp(72px,9vw,120px) auto 0;padding:28px var(--rand) 40px;border-top:1px solid var(--linie);display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--still)}
