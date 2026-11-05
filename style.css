@@ -48,53 +48,25 @@ h3{font:500 18px/1.3 var(--sans);letter-spacing:-.01em;margin:0 0 8px}
 .portrait::before{content:"";position:absolute;inset:8% 6% 0;z-index:-1;background:radial-gradient(50% 50% at 50% 42%,rgba(255,255,255,.13),rgba(255,255,255,0) 70%)}
 .portrait img{width:100%;height:auto;-webkit-mask:linear-gradient(180deg,#000 72%,transparent 100%);mask:linear-gradient(180deg,#000 72%,transparent 100%)}
 
-/* Stationen (statt Kundenlogos) */
-.stationen{max-width:var(--breit);margin:0 auto;padding:28px var(--rand) 30px;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);display:flex;align-items:center;gap:20px 48px;flex-wrap:wrap}
-.stationen .klein{margin:0}
-.stationen ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px 48px}
-.stationen li{font:500 17px/1.2 var(--sans);letter-spacing:-.01em;color:#8c8b87}
-
-/* Abschnitte */
-.abschnitt{max-width:var(--breit);margin:0 auto;padding:clamp(80px,11vw,140px) var(--rand) 0}
-.gross{font:500 clamp(26px,3.1vw,38px)/1.25 var(--sans);letter-spacing:-.03em;max-width:28ch;margin:0 0 64px}
-.raster{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px}
-.punkt{padding:26px 0;border-top:1px solid var(--linie);display:grid;grid-template-columns:44px 1fr;column-gap:12px}
-.punkt .nr{font:500 12px/1.6 var(--mono);color:var(--still);grid-row:span 2}
-.punkt p{margin:0;color:var(--leise);max-width:42ch}
-.vorspann{color:var(--leise);max-width:52ch;margin:0 0 48px;font-size:17px}
-.zeilen{border-top:1px solid var(--linie)}
-.zeile{display:grid;grid-template-columns:240px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--linie)}
-.zeile .art{font-size:13px;color:var(--still);padding-top:3px}
-.zeile h3{font-size:22px;letter-spacing:-.02em}
-.zeile p{margin:0;color:var(--leise);max-width:56ch}
-.ueber{display:grid;grid-template-columns:1fr 360px;gap:clamp(32px,6vw,96px);align-items:start}
-.ueber p{color:var(--leise);font-size:17px;max-width:52ch;margin:0 0 18px}
-.pfeil-link{display:inline-flex;gap:6px;margin-top:6px;font-size:14px;color:var(--text);text-decoration:none;border-bottom:1px solid var(--linie-stark);padding-bottom:2px;transition:border-color .2s}
-.pfeil-link:hover{border-color:var(--text)}
-.foto{margin:0;border-radius:18px;overflow:hidden;filter:grayscale(1) contrast(1.05);transition:filter .6s}
-.foto:hover{filter:none}
-.foto img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
-.jahre{list-style:none;margin:72px 0 0;padding:28px 0 0;border-top:1px solid var(--linie);display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.zahl{display:block;font:500 clamp(36px,4.4vw,56px)/1 var(--sans);letter-spacing:-.04em;margin-bottom:10px}
-.jahre li:last-child .zahl{color:var(--akzent)}
-.jahre .was{font-size:14px;color:var(--leise)}
-.kontakt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start;padding:clamp(40px,6vw,64px);border:1px solid var(--linie);border-radius:24px;background:linear-gradient(180deg,#121212,#0d0d0d)}
-.kontakt h2{max-width:14ch}
-.kontakt p{color:var(--leise);max-width:40ch;margin:0}
-.weg{display:grid;grid-template-columns:90px 1fr auto;align-items:baseline;gap:12px;padding:22px 0;border-bottom:1px solid var(--linie);text-decoration:none}
-.weg:first-child{border-top:1px solid var(--linie)}
-.weg .klein{margin:0}
-.wert{font:500 20px/1.3 var(--sans);letter-spacing:-.015em}
-.pf{color:var(--still);transition:transform .25s var(--sanft),color .2s}
-.weg:hover .pf,.kanaele a:hover .pf{transform:translateX(3px);color:var(--text)}
-.kanaele{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--linie)}
-.kanaele a{display:grid;grid-template-columns:240px 1fr auto;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--linie);text-decoration:none;transition:background .2s}
-.kanaele .name{font:500 17px/1.3 var(--sans)}
-.kanaele .info{color:var(--leise);font-size:15px}
-.kanaele a:hover .pf{transform:translate(2px,-2px)}
+/* Abschnitte: Titel links, Inhalt rechts */
+.abschnitt{max-width:var(--breit);margin:0 auto;padding:clamp(64px,8vw,104px) var(--rand) 0}
+.zwei{display:grid;grid-template-columns:280px 1fr;gap:clamp(24px,5vw,72px)}
+.zwei>div,.zwei>ul{border-top:1px solid var(--linie);padding-top:26px}
+.zwei h2{font-size:clamp(26px,2.6vw,32px);padding-top:20px}
+.zwei p{color:var(--leise);font-size:17px;max-width:56ch;margin:0 0 18px}
+.zwei p a{color:var(--text);text-decoration-color:var(--linie-stark);text-underline-offset:3px}
+.zwei p a:hover{text-decoration-color:var(--text)}
+.gebaut{list-style:none;margin:0;padding-left:0;padding-right:0;display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
+.gebaut p{font-size:15px;margin:0}
+.mail{display:inline-flex;gap:12px;align-items:baseline;font:500 clamp(28px,3.6vw,44px)/1.1 var(--sans);letter-spacing:-.035em;text-decoration:none;margin:0 0 16px}
+.mail span{color:var(--still);transition:transform .25s var(--sanft),color .2s}
+.mail:hover span{transform:translateX(4px);color:var(--akzent)}
+.kanaele{list-style:none;margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--linie);display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px}
+.kanaele a{color:var(--leise);text-decoration:none;transition:color .2s}
+.kanaele a:hover{color:var(--text)}
 
 /* Fuß */
-.fuss{max-width:var(--breit);margin:clamp(80px,11vw,140px) auto 0;padding:28px var(--rand) 40px;border-top:1px solid var(--linie);display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--still)}
+.fuss{max-width:var(--breit);margin:clamp(72px,9vw,120px) auto 0;padding:28px var(--rand) 40px;border-top:1px solid var(--linie);display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--still)}
 .recht-links{display:flex;gap:22px}
 .recht-links a{text-decoration:none;transition:color .2s}
 .recht-links a:hover{color:var(--text)}
@@ -115,13 +87,10 @@ h3{font:500 18px/1.3 var(--sans);letter-spacing:-.01em;margin:0 0 8px}
   .portrait{grid-row:1;justify-self:center;max-width:380px}
   .held-text{padding-bottom:20px}
   .hoehen{-webkit-mask:radial-gradient(80% 45% at 50% 22%,#000 10%,transparent 70%);mask:radial-gradient(80% 45% at 50% 22%,#000 10%,transparent 70%)}
-  .raster{grid-template-columns:1fr}
-  .zeile,.kanaele a{grid-template-columns:1fr;gap:6px}
-  .kanaele .pf{display:none}
-  .ueber{grid-template-columns:1fr}
-  .foto{max-width:320px}
-  .jahre{grid-template-columns:1fr 1fr;row-gap:36px}
-  .kontakt{grid-template-columns:1fr}
+  .zwei{grid-template-columns:1fr;gap:0}
+  .zwei h2{padding-top:0}
+  .zwei>div,.zwei>ul{border-top:0;padding-top:0}
+  .gebaut{grid-template-columns:1fr;gap:22px}
   .leiste nav a:not(.nav-knopf){display:none}
 }
 @media (prefers-reduced-motion:reduce){
