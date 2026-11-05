@@ -1,5 +1,5 @@
-/* Bewegung auf laurenzseifried.de: Höhenlinien in Tinte, die langsam fließen und der Maus
-   leicht ausweichen, dazu Einblenden beim Scrollen.
+/* Bewegung auf laurenzseifried.de: graue Höhenlinien hinter dem Porträt, die langsam fließen
+   und der Maus leicht ausweichen, dazu Einblenden beim Scrollen.
    Ohne JS oder bei "Bewegung reduzieren" bleibt alles lesbar und still. */
 (() => {
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -50,9 +50,9 @@
       const fx = w * (schmal ? opt.mobil[0] : opt.fokusX), fy = h * (schmal ? opt.mobil[1] : opt.fokusY);
       const rad = Math.max(w, h) * (schmal ? opt.mobil[2] : opt.weite);
       verlauf = ctx.createRadialGradient(fx, fy, 0, fx, fy, rad);
-      verlauf.addColorStop(0, 'rgba(212,85,42,0.55)');
-      verlauf.addColorStop(0.35, 'rgba(120,70,50,0.38)');
-      verlauf.addColorStop(1, 'rgba(28,27,26,0.22)');
+      verlauf.addColorStop(0, 'rgba(255,255,255,0.30)');
+      verlauf.addColorStop(0.45, 'rgba(255,255,255,0.16)');
+      verlauf.addColorStop(1, 'rgba(255,255,255,0.06)');
       zeichne();
     }
 
@@ -151,7 +151,7 @@
   }
 
   document.querySelectorAll('canvas.hoehen').forEach((c) => {
-    hoehenlinien(c, { seed: 23, fokusX: 0.72, fokusY: 0.5, weite: 0.55, massstab: 2.4, helligkeit: 1, mobil: [0.7, 0.22, 0.8] });
+    hoehenlinien(c, { seed: 23, fokusX: 0.72, fokusY: 0.42, weite: 0.5, massstab: 2.4, helligkeit: 1, mobil: [0.5, 0.2, 0.8] });
   });
 
   // Leiste bekommt beim Scrollen einen Grund.
