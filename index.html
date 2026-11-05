@@ -2,9 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Laurenz Seifried</title>
 <meta name="description" content="Ich baue mit KI Systeme, die wirklich Arbeit abnehmen, für Unternehmen und mein eigenes Leben. Gründer von Zarevo.">
+<meta name="theme-color" content="#0e0f1b">
 <link rel="canonical" href="https://laurenzseifried.de/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Laurenz Seifried">
@@ -13,7 +14,11 @@
 <meta property="og:image" content="https://laurenzseifried.de/laurenz-seifried.jpg">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/schriften/funnel-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/schriften/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/schriften/schriften.css">
 <link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,30 +45,146 @@
 </script>
 </head>
 <body>
+
+<header class="leiste">
+  <a class="marke" href="#start">Laurenz Seifried</a>
+  <nav>
+    <a href="#arbeit">Arbeit</a>
+    <a href="#systeme">Eigene Systeme</a>
+    <a href="#werdegang">Werdegang</a>
+    <a class="nav-knopf" href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
 <main>
-  <div class="kopf">
-    <img src="/laurenz-seifried.jpg" width="112" height="112" alt="Laurenz Seifried">
-    <div>
-      <h1>Laurenz Seifried</h1>
-      <p class="rolle">Gründer von <a href="https://zarevo.de/">Zarevo</a></p>
+
+  <section class="held" id="start">
+    <canvas class="hoehen" aria-hidden="true"></canvas>
+    <div class="held-schleier" aria-hidden="true"></div>
+    <div class="held-inhalt">
+      <figure class="portrait" data-reveal>
+        <img src="/laurenz-seifried.jpg" width="640" height="640" alt="Laurenz Seifried">
+      </figure>
+      <div class="held-text">
+        <p class="etikett" data-reveal>Gründer von <a href="https://zarevo.de/">Zarevo</a></p>
+        <h1 data-reveal>Laurenz Seifried</h1>
+        <p class="lead" data-reveal>Ich baue mit KI Systeme, die wirklich Arbeit abnehmen, für Unternehmen und mein eigenes Leben.</p>
+        <div class="knoepfe" data-reveal>
+          <a class="knopf" href="https://cal.com/zarevo/30min">Gespräch vereinbaren</a>
+          <a class="knopf leise" href="#arbeit">Was ich baue</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <p class="lead">Ich baue mit KI Systeme, die wirklich Arbeit abnehmen, für Unternehmen und mein eigenes Leben. Gründer von Zarevo.</p>
-  <p>Mit Zarevo automatisiere ich Abläufe in kleinen und mittleren Unternehmen: Anfragen beantworten, Angebote vorbereiten, Rechnungen prüfen, nachfassen. Ich schaue mir zuerst an, wo KI wirklich Arbeit abnimmt, und baue die Lösung in die Systeme ein, die ein Team schon nutzt.</p>
-  <p>Ich komme aus Technik und Zahlen. Bei Volkswagen habe ich die Ausbildung zum Elektroniker für Informations- und Systemtechnik gemacht, an der Ostfalia Hochschule dual BWL studiert und danach im Controlling gearbeitet. Deshalb messe ich jede Automatisierung an dem, was sie bringt.</p>
-  <p>Wenn Sie wissen wollen, wo KI in Ihrem Betrieb Arbeit abnehmen kann:</p>
-  <a class="knopf" href="https://cal.com/zarevo/30min">Gespräch vereinbaren</a>
+    <a class="weiter" href="#arbeit" aria-label="Weiter nach unten"><span></span></a>
+  </section>
+
+  <section class="abschnitt" id="arbeit">
+    <div class="spalten">
+      <div class="text">
+        <p class="etikett" data-reveal>01 · Arbeit</p>
+        <h2 data-reveal>Systeme, die im Alltag eines Teams mitlaufen.</h2>
+        <p data-reveal>Mit Zarevo automatisiere ich Abläufe in kleinen und mittleren Unternehmen: Anfragen beantworten, Angebote vorbereiten, Rechnungen prüfen, nachfassen. Ich schaue mir zuerst an, wo KI wirklich Arbeit abnimmt, und baue die Lösung in die Systeme ein, die ein Team schon nutzt.</p>
+        <p class="hinweis" data-reveal>Der Mensch behält das letzte Wort: Was rausgeht, gibt jemand frei.</p>
+      </div>
+      <div class="ablauf" data-reveal aria-label="Beispiel eines automatisierten Ablaufs">
+        <div class="ablauf-kopf">
+          <span class="punkt"></span>
+          <span class="ablauf-titel">Anfrage per Mail</span>
+          <span class="ablauf-zaehler">1 / 3</span>
+        </div>
+        <ol class="schritte">
+          <li><span class="knoten"></span><span class="schritt-text">Mail kommt an</span><span class="status"></span></li>
+          <li><span class="knoten"></span><span class="schritt-text">KI liest und ordnet ein</span><span class="status"></span></li>
+          <li><span class="knoten"></span><span class="schritt-text">Angebot als Entwurf</span><span class="status"></span></li>
+          <li><span class="knoten"></span><span class="schritt-text">Freigabe und Versand</span><span class="status"></span></li>
+        </ol>
+        <div class="ablauf-fuss">
+          <span>Beispielablauf</span>
+          <span class="leiste-fortschritt"><span></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="systeme">
+    <div class="kopfzeile">
+      <p class="etikett" data-reveal>02 · Eigene Systeme</p>
+      <h2 data-reveal>Was bei Kunden landet, läuft vorher bei mir.</h2>
+      <p data-reveal>Mein eigener Alltag läuft auf Agenten und selbst gebauten Werkzeugen. Dort probiere ich aus, was trägt, bevor es in einen Betrieb kommt.</p>
+    </div>
+    <div class="karten">
+      <article class="karte" data-reveal>
+        <div class="bild welle" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <h3>Telefon-Agent</h3>
+        <p>Ruft nach meiner Freigabe für mich an: Termine beim Arzt, Reservierungen, Hotlines.</p>
+      </article>
+      <article class="karte" data-reveal>
+        <div class="bild ring" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38"/><circle class="fuell" cx="50" cy="50" r="38"/></svg><span>Fokus</span></div>
+        <h3>Werkbank</h3>
+        <p>Eigene Mac-App für Zeiterfassung und Fokusblöcke. Sie misst meine Arbeit, statt sie zu schätzen.</p>
+      </article>
+      <article class="karte" data-reveal>
+        <div class="bild kurve" aria-hidden="true"><svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0 64 C 20 60, 30 50, 50 52 S 80 30, 100 36 S 140 18, 160 22 S 190 10, 200 8"/></svg></div>
+        <h3>Morgen-Dashboard</h3>
+        <p>Ein Bildschirm am Morgen mit allem, was zählt: Training, Erholung, Ziele und die Zahlen von Zarevo.</p>
+      </article>
+      <article class="karte" data-reveal>
+        <div class="bild schichten" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <h3>3D-Druck als Code</h3>
+        <p>Teile entwerfe ich als Code. Ein Agent bereitet den Druck vor und meldet, wenn er fertig ist.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="werdegang">
+    <div class="spalten">
+      <div class="text">
+        <p class="etikett" data-reveal>03 · Werdegang</p>
+        <h2 data-reveal>Technik und Zahlen.</h2>
+        <p data-reveal>Bei Volkswagen habe ich die Ausbildung zum Elektroniker für Informations- und Systemtechnik gemacht, an der Ostfalia Hochschule dual BWL studiert und danach im Controlling gearbeitet. Deshalb messe ich jede Automatisierung an dem, was sie bringt.</p>
+      </div>
+      <ol class="zeitleiste">
+        <li data-reveal><span class="jahr">seit 2026</span><span class="was">Gründer von Zarevo</span><span class="wo">KI-Automatisierung für kleine und mittlere Unternehmen</span></li>
+        <li data-reveal><span class="jahr">2025–2026</span><span class="was">Controller</span><span class="wo">Volkswagen AG</span></li>
+        <li data-reveal><span class="jahr">2022–2025</span><span class="was">Duales Studium BWL, B.A.</span><span class="wo">Ostfalia Hochschule für angewandte Wissenschaften</span></li>
+        <li data-reveal><span class="jahr">2019–2022</span><span class="was">Elektroniker für Informations- und Systemtechnik</span><span class="wo">Ausbildung bei der Volkswagen AG</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="abschnitt kontakt" id="kontakt">
+    <canvas class="hoehen klein" aria-hidden="true" data-fokus="0.5"></canvas>
+    <div class="kontakt-inhalt">
+      <p class="etikett" data-reveal>04 · Kontakt</p>
+      <h2 data-reveal>Wo kann KI in Ihrem Betrieb Arbeit abnehmen?</h2>
+      <p data-reveal>Dreißig Minuten, ein konkreter Ablauf, eine ehrliche Einschätzung.</p>
+      <div class="knoepfe" data-reveal>
+        <a class="knopf" href="https://cal.com/zarevo/30min">Gespräch vereinbaren</a>
+        <a class="knopf leise" href="mailto:laurenz@zarevo.de">laurenz@zarevo.de</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
   <ul class="profile">
     <li><a href="https://zarevo.de/">Zarevo</a></li>
     <li><a href="https://www.youtube.com/@laurenzseifried" rel="me">YouTube</a></li>
     <li><a href="https://github.com/laurenzseifried" rel="me">GitHub</a></li>
+    <li><a href="https://www.xing.com/profile/Laurenz_Seifried" rel="me">XING</a></li>
     <li><a href="https://www.tiktok.com/@laurenzseifried" rel="me">TikTok</a></li>
     <li><a href="https://medium.com/@laurenzseifried" rel="me">Medium</a></li>
     <li><a href="https://substack.com/@laurenzseifried" rel="me">Substack</a></li>
     <li><a href="https://www.crunchbase.com/person/laurenz-seifried" rel="me">Crunchbase</a></li>
-    <li><a href="https://www.xing.com/profile/Laurenz_Seifried" rel="me">XING</a></li>
   </ul>
-</main>
-<footer><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></footer>
+  <div class="recht-links">
+    <span>© 2026 Laurenz Seifried</span>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="/bewegung.js" defer></script>
 </body>
 </html>
