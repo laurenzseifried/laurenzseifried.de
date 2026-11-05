@@ -1,5 +1,5 @@
-/* Bewegung auf laurenzseifried.de: Höhenlinien, die langsam fließen und der Maus leicht
-   ausweichen, der Beispielablauf in der Arbeitskarte, Einblenden beim Scrollen.
+/* Bewegung auf laurenzseifried.de: Höhenlinien in Tinte, die langsam fließen und der Maus
+   leicht ausweichen, dazu Einblenden beim Scrollen.
    Ohne JS oder bei "Bewegung reduzieren" bleibt alles lesbar und still. */
 (() => {
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -50,11 +50,9 @@
       const fx = w * (schmal ? opt.mobil[0] : opt.fokusX), fy = h * (schmal ? opt.mobil[1] : opt.fokusY);
       const rad = Math.max(w, h) * (schmal ? opt.mobil[2] : opt.weite);
       verlauf = ctx.createRadialGradient(fx, fy, 0, fx, fy, rad);
-      verlauf.addColorStop(0, 'rgba(255,190,110,0.95)');
-      verlauf.addColorStop(0.22, 'rgba(255,120,72,0.7)');
-      verlauf.addColorStop(0.45, 'rgba(200,69,122,0.42)');
-      verlauf.addColorStop(0.7, 'rgba(110,96,220,0.22)');
-      verlauf.addColorStop(1, 'rgba(244,242,238,0.07)');
+      verlauf.addColorStop(0, 'rgba(212,85,42,0.55)');
+      verlauf.addColorStop(0.35, 'rgba(120,70,50,0.38)');
+      verlauf.addColorStop(1, 'rgba(28,27,26,0.22)');
       zeichne();
     }
 
@@ -153,10 +151,7 @@
   }
 
   document.querySelectorAll('canvas.hoehen').forEach((c) => {
-    const klein = c.classList.contains('klein');
-    hoehenlinien(c, klein
-      ? { seed: 41, fokusX: 0.5, fokusY: 1.05, weite: 0.62, massstab: 2.4, helligkeit: 0.9 }
-      : { seed: 23, fokusX: 0.74, fokusY: 0.62, weite: 0.72, massstab: 2.6, helligkeit: 1.1, mobil: [0.85, 0.22, 0.75] });
+    hoehenlinien(c, { seed: 23, fokusX: 0.72, fokusY: 0.5, weite: 0.55, massstab: 2.4, helligkeit: 1, mobil: [0.7, 0.22, 0.8] });
   });
 
   // Leiste bekommt beim Scrollen einen Grund.
@@ -175,59 +170,4 @@
   }), { rootMargin: '0px 0px -8% 0px' });
   reveal.forEach((el) => io.observe(el));
 
-  // Beispielablauf: drei Abläufe, Schritt für Schritt, der letzte Schritt ist immer die Freigabe durch einen Menschen.
-  const ablauf = document.querySelector('.ablauf');
-  if (!ablauf) return;
-  const ablaeufe = [
-    { titel: 'Anfrage per Mail', schritte: ['Mail kommt an', 'KI liest und ordnet ein', 'Angebot als Entwurf', 'Freigabe und Versand'] },
-    { titel: 'Eingangsrechnung', schritte: ['Rechnung kommt an', 'Positionen werden geprüft', 'Abweichung markiert', 'Freigabe und Buchung'] },
-    { titel: 'Offenes Angebot', schritte: ['Seit 7 Tagen keine Antwort', 'Verlauf wird gelesen', 'Nachfass-Mail entworfen', 'Freigabe und Versand'] },
-  ];
-  const li = [...ablauf.querySelectorAll('.schritte li')];
-  li[3].classList.add('mensch');
-  const titel = ablauf.querySelector('.ablauf-titel');
-  const zaehler = ablauf.querySelector('.ablauf-zaehler');
-  const balken = ablauf.querySelector('.leiste-fortschritt span');
-  const texte = li.map((x) => x.querySelector('.schritt-text'));
-  const status = li.map((x) => x.querySelector('.status'));
-  const TAKT = 1250, HALTEN = 1800, DAUER = TAKT * 5 + HALTEN;
-
-  function zeige(n) {
-    const a = ablaeufe[n];
-    titel.textContent = a.titel;
-    zaehler.textContent = `${n + 1} / ${ablaeufe.length}`;
-    a.schritte.forEach((t, i) => { texte[i].textContent = t; });
-  }
-  function setze(aktiv) {
-    li.forEach((x, i) => {
-      x.classList.toggle('fertig', i < aktiv);
-      x.classList.toggle('aktiv', i === aktiv);
-      const mensch = i === 3;
-      status[i].textContent = i < aktiv ? (mensch ? 'freigegeben' : 'fertig') : i === aktiv ? (mensch ? 'wartet' : 'läuft') : '';
-    });
-  }
-  if (ruhig) { setze(4); return; }
-
-  let n = 0, start = 0, laeuft = false;
-  function runde(t) {
-    if (start === Infinity) { if (laeuft) requestAnimationFrame(runde); return; }
-    if (!start) start = t;
-    const e = t - start;
-    setze(Math.min(Math.floor(e / TAKT), 4));
-    balken.style.width = `${Math.min(e / (TAKT * 4), 1) * 100}%`;
-    if (e > DAUER) {
-      ablauf.classList.add('wechsel');
-      setTimeout(() => {
-        n = (n + 1) % ablaeufe.length; zeige(n); setze(-1); balken.style.width = '0';
-        ablauf.classList.remove('wechsel'); start = 0;
-      }, 380);
-      start = Infinity; // pausiert bis zum Wechsel
-    }
-    if (laeuft) requestAnimationFrame(runde);
-  }
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !laeuft) { laeuft = true; if (start === Infinity) start = 0; requestAnimationFrame(runde); }
-    else if (!e.isIntersecting) laeuft = false;
-  }, { threshold: 0.3 }).observe(ablauf);
-  zeige(0); setze(-1);
 })();
